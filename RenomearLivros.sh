@@ -10,6 +10,7 @@ Livro=100
 total=`ls *.jpg | wc -l`
 echo "  $total arquivos para Renomear - Numerando..."
 echo "Layot de Saída 'Livro $1 - Folha $2'"
+mkdir -p backup/original
 verso=0
 if [ -z "$1" ]; then
     Livro=598
@@ -31,9 +32,9 @@ fi
 
 
 echo -e "\n ### Processo de Backups - SECURITY ### \n"
-cp ZYB/*.jpg ZYB/000/
-rm -f ZYB/*.jpg
-cp *.jpg ZYB/
+cp backup/*.jpg backup/original/
+rm -f backup/*.jpg
+cp *.jpg backup/
 
 
 echo -e "\n ### Renomeando arquivos ### \n"
@@ -54,4 +55,3 @@ else
 fi
 
 done
-
